@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhhfu.demo.project.dao.StudentDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.zhhfu.demo.project.entity.StudentEntity" id="studentMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="score" column="score"/>
+        <result property="addr" column="addr"/>
+    </resultMap>
+
+    <select id="findStudentById" resultType="com.zhhfu.demo.project.entity.StudentEntity" parameterType="int">
+        select * from stu where id = #{id}
+    </select>
+
+    <update id="updateInfo" parameterType="com.zhhfu.demo.project.entity.StudentEntity" >
+        update stu set age = #{age} where id = #{id}
+        <if test="addr != null and addr.trim() != ''">
+            and addr = #{addr}
+        </if>
+    </update>
+    
+    <delete id="delBatch">
+        delete from stu where id in
+        <foreach collection="array" item = "id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="findList" resultType="com.zhhfu.demo.project.entity.StudentEntity">
+        select * from stu where 
+        <choose>
+            <when test="addr != null">
+                addr = #{addr}
+            </when>
+            <when test="name != null and name.trim() != ''">
+                and name = #{name}
+            </when>
+            <otherwise>
+                id = #{id}
+            </otherwise>
+        </choose>
+    </select>
+
+    <update id="up" parameterType="com.zhhfu.demo.project.entity.StudentEntity">
+        update stu
+        <set>
+            <if test="name != null and name.trim() != ''">
+                name = #{name}
+            </if>
+            <if test="name != null and name.trim() != ''">
+                name = #{name}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>
