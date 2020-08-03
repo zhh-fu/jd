@@ -13,6 +13,7 @@ public class CuttingRope12 {
         if(n < 4){
             return n - 1;
         }
+
         int count3 = n / 3;
         int mod = n % 3;
         if(mod == 1){
