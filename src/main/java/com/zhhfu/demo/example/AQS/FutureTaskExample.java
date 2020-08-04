@@ -1,4 +1,4 @@
-package zhh_fu.example.AQS;
+package com.zhhfu.demo.example.AQS;
 
 import lombok.extern.slf4j.Slf4j;
 

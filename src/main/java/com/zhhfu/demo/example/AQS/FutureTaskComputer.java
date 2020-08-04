@@ -1,4 +1,4 @@
-package zhh_fu.example.AQS;
+package com.zhhfu.demo.example.AQS;
 
 import java.util.ArrayList;
 import java.util.List;
