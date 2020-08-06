@@ -13,7 +13,7 @@ import java.util.List;
  * @solution :
  */
 
-public class PathSum {
+public class PathSum31 {
     public List<List<Integer>> list = new ArrayList<>();
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         if(root == null){

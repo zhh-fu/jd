@@ -9,7 +9,7 @@ import java.util.HashMap;
  * @solution : 使用hashmap，原来的节点当做key，复制的节点当做value
  */
 
-public class CopyRandomList {
+public class CopyRandomList32 {
     public Node copyRandomList(Node head) {
         if(head == null){
             return null;
