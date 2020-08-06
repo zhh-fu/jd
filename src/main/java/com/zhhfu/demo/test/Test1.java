@@ -117,6 +117,7 @@ public class Test1 {
         String s = sb.toString();
         System.out.println(s.equals(""));
         System.out.println(s == null);
+        System.out.println('b' - 'a');
     }
 
 
