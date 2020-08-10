@@ -25,7 +25,7 @@ public class Person {
     }
 
     public static void main(String[] args) {
-        System.out.println(ClassLayout.parseClass(Person.class).toPrintable());
+        System.out.println(ClassLayout.parseClass(Object.class).toPrintable());
         int[] arr = {2,3};
         System.out.println(ClassLayout.parseClass(arr.getClass()).toPrintable());
         System.out.println(ClassLayout.parseClass(Node1.class).toPrintable());
