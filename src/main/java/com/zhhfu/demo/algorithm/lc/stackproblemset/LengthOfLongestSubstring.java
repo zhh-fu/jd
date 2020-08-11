@@ -14,11 +14,15 @@ public class LengthOfLongestSubstring {
             return 0;
         }
         HashMap<Character, Integer> map = new HashMap<>();
-        for (int i=0;i<s.length();i++){
-            char ch = s.charAt(i);
+        int left = 0, max = Integer.MIN_VALUE;
+        for (int right=0;right<s.length();right++){
+            char ch = s.charAt(right);
             if (map.containsKey(ch)){
-
+                left = Math.max(left, map.get(ch));
             }
+            max = Math.max(max, right - left);
+            map.put(ch, right);
         }
+        return max;
     }
 }
