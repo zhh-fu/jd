@@ -27,4 +27,25 @@ public class Search50 {
         }
         return count;
     }
+
+    public int search2(int[] nums, int target){
+        if (nums == null || nums.length == 0){
+            return 0;
+        }
+        return findBound(nums, target + 0.5) - findBound(nums, target - 0.5);
+    }
+
+    private int findBound(int[] nums, double target){
+        int left = 0, right = nums.length - 1;
+        int mid = (right - left) / 2 + left;
+        while (left <= right){
+            if (nums[mid] < target){
+                left = mid + 1;
+            } else{
+                right = mid - 1;
+            }
+            mid = (right - left) / 2 + left;
+        }
+        return right;
+    }
 }
