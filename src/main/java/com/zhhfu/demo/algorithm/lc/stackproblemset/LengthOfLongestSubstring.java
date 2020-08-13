@@ -20,8 +20,8 @@ public class LengthOfLongestSubstring {
             if (map.containsKey(ch)){
                 left = Math.max(left, map.get(ch));
             }
-            max = Math.max(max, right - left);
-            map.put(ch, right);
+            max = Math.max(max, right - left + 1);
+            map.put(ch, right + 1);
         }
         return max;
     }
