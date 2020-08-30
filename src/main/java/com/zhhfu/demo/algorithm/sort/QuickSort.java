@@ -1,5 +1,7 @@
 package com.zhhfu.demo.algorithm.sort;
 
+import java.util.Random;
+
 /**
  * @author ：fuzhihang5
  * @date ：Created in 2020/7/23 11:13
@@ -7,6 +9,7 @@ package com.zhhfu.demo.algorithm.sort;
  * @description ：快速排序
  */
 public class QuickSort {
+    /*
     public void quickSort(int[] arr, int i, int j){
         if (arr == null || arr.length < 2){
             return;
@@ -33,6 +36,35 @@ public class QuickSort {
         }
         swap(arr, more, right);
         return new int[]{less + 1, more};
+    }
+    */
+
+    private void quickSort(int[] arr, int left, int right){
+        if (arr == null || arr.length < 2){
+            return;
+        }
+        if (left < right){
+            int pivot = left + (int) Math.random() * (right - left + 1);
+            swap(arr, pivot, right);
+            int[] edge = partition(arr, left, right);
+            quickSort(arr,left,edge[0] - 1);
+            quickSort(arr, edge[1] + 1, right);
+        }
+    }
+
+    private int[] partition(int[] arr, int left, int right){
+        int less = left - 1, more = right, cur = left;
+        while (cur < more){
+            if (arr[cur] < arr[right]){
+                swap(arr, cur++, ++less);
+            } else if (arr[cur] > arr[right]){
+                swap(arr, cur, --more);
+            } else {
+                cur++;
+            }
+        }
+        swap(arr, right, more);
+        return new int[]{less + 1,more};
     }
 
     private static void swap(int[] arr, int i, int j){
