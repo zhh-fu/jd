@@ -13,6 +13,8 @@ public class Student extends Person {
     public String addr;
 
     public static void main(String[] args) {
-        System.out.println(ClassLayout.parseClass(Student.class).toPrintable());
+        //System.out.println(ClassLayout.parseClass(Student.class).toPrintable());
+        new Student();
+        new Person();
     }
 }

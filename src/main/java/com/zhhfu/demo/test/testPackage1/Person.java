@@ -15,6 +15,7 @@ public class Person {
     private char sign;
 
     public Person() {
+        System.out.println("a");
     }
 
     public Person(int id, String name, int age, char sign) {
@@ -25,10 +26,12 @@ public class Person {
     }
 
     public static void main(String[] args) {
+        /*
         System.out.println(ClassLayout.parseClass(Object.class).toPrintable());
         int[] arr = {2,3};
         System.out.println(ClassLayout.parseClass(arr.getClass()).toPrintable());
         System.out.println(ClassLayout.parseClass(Node1.class).toPrintable());
+        */
     }
 
     static class Node1{
